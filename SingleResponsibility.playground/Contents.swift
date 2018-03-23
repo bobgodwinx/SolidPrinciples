@@ -6,16 +6,20 @@ import PlaygroundSupport
 //MARK: Single Responsibility
 
 /// Mutates a given state
-protocol Switchable {
+protocol SwitchOn {
     func on()
+}
+
+protocol SwitchOff {
     func off()
 }
+
 /// Executes a function
 protocol Executable {
     func execute()
 }
 /// Conforms to the `Switchable`
-class Switch: Switchable {
+class Switch: SwitchOn, SwitchOff {
     private var state: Bool = false
 
     func on() {
@@ -33,9 +37,9 @@ class Switch: Switchable {
 /// Conforms to `Executable`
 class TurnOn: Executable {
 
-    private let  aSwitch: Switchable
+    private let  aSwitch: SwitchOn
 
-    init(aSwitch: Switchable) {
+    init(aSwitch: SwitchOn) {
         self.aSwitch = aSwitch
     }
 
@@ -46,9 +50,9 @@ class TurnOn: Executable {
 }
 /// Conforms to `Executable`
 class TurnOff: Executable {
-    private let  aSwitch: Switchable
+    private let  aSwitch: SwitchOff
 
-    init(aSwitch: Switchable) {
+    init(aSwitch: SwitchOff) {
         self.aSwitch = aSwitch
     }
 
