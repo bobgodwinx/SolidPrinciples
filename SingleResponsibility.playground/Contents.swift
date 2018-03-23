@@ -29,3 +29,16 @@ class Switch: Switchable {
         return state ? "Switched On" : "Switched Off"
     }
 }
+/// Conforms to `Executable`
+class TurnOn: Executable {
+
+    private let  aSwitch: Switchable
+
+    init(aSwitch: Switchable) {
+        self.aSwitch = aSwitch
+    }
+
+    func execute() {
+        self.aSwitch.on()
+    }
+}
