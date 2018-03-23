@@ -1,6 +1,7 @@
 //: SOLID Principles
 
 import Foundation
+import PlaygroundSupport
 
 //MARK: Single Responsibility
 
@@ -39,6 +40,7 @@ class TurnOn: Executable {
     }
 
     func execute() {
+        //Single Responsibility
         self.aSwitch.on()
     }
 }
@@ -51,6 +53,19 @@ class TurnOff: Executable {
     }
 
     func execute() {
+        //Single Responsibility
         self.aSwitch.off()
     }
 }
+
+let aSwitch = Switch() /// Represents your model
+aSwitch.description
+let turnOn = TurnOn(aSwitch: aSwitch) /// Represents a class that has a
+turnOn.execute()
+aSwitch.description
+let turnOff = TurnOff(aSwitch: aSwitch)
+turnOff.execute()
+aSwitch.description
+
+PlaygroundPage.current.finishExecution()
+
