@@ -67,5 +67,36 @@ let turnOff = TurnOff(aSwitch: aSwitch)
 turnOff.execute()
 aSwitch.description
 
+//MARK: Abstract Email Example
+
+protocol Address {
+    var to: String {get}
+    var from: String {get}
+    var carbonCopy: [String] {get}
+    var blindCarbonCopy: [String] {get}
+}
+
+protocol Content {
+    var subject: String {get}
+    var messageBody: String {get}
+    var attachment: Data {get}
+}
+
+protocol Email {
+    var address: Address {get}
+    var content: Content {get}
+}
+
+protocol Sendable {
+    func send(message email: Email)
+}
+
+class MailServer: Sendable {
+    //Single Responsibility
+    func send(message email: Email) {
+        //sending the email action performed here
+    }
+}
+
 PlaygroundPage.current.finishExecution()
 
