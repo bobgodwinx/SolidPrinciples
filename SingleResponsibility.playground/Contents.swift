@@ -42,3 +42,15 @@ class TurnOn: Executable {
         self.aSwitch.on()
     }
 }
+/// Conforms to `Executable`
+class TurnOff: Executable {
+    private let  aSwitch: Switchable
+
+    init(aSwitch: Switchable) {
+        self.aSwitch = aSwitch
+    }
+
+    func execute() {
+        self.aSwitch.off()
+    }
+}
