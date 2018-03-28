@@ -14,4 +14,8 @@ Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-pa
 The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/SingleResponsibility.playground/Contents.swift)
 
 ### Open-Closed
-PS: **TODO** 
+
+The Open Closed principle enforces a rule that a class can be easily extended but at the same time forbids any modification to it’s self. This principle highly draws it’s traits from the Decorator & Strategy pattern. The Decorator allows extension of behaviour dynamically or statically during runtime. It is often referred to as “the alternative to subclassing”, while the Strategy allows implementation of different algorithms interchangeable within the same family.
+
+Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-part-2-a22d4c8ed906) on medium. <br />
+The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/OpenClosed.playground/Contents.swift)
