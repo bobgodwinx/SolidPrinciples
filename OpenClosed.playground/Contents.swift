@@ -29,4 +29,20 @@ extension Developer {
         return "The iOS developer use both \(self.language) and now Swift"
     }
 }
+//MARK: Extension for interchangeable algorithms
+extension Developer where Self: IOSEngineer {
+    func traits() -> String { return iosTraits }
+}
+
+extension Developer where Self == WebProgrammer {
+    func traits() -> String {
+        return "We are cool and we do both \(self.language) and CSS also."
+    }
+}
+///This one is cool :) because it has access to Developer
+extension Developer where Self == RubyArchitect {
+    func traits() -> String {
+        return "Ruby is powerful and we code in \(self.language) and \(self.iosTraits)"
+    }
+}
 
