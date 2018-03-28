@@ -10,3 +10,8 @@ protocol Developer {
     func traits() -> String
 }
 
+//MARK: Concrete Types
+struct WebProgrammer { }
+struct RubyArchitect { }
+class IOSEngineer { }
+
