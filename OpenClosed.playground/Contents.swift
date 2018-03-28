@@ -45,4 +45,26 @@ extension Developer where Self == RubyArchitect {
         return "Ruby is powerful and we code in \(self.language) and \(self.iosTraits)"
     }
 }
+//MARK: Team Concrete Type
+class Team {
+    let developers: [Developer]
+
+    init(developers: [Developer]) {
+        self.developers = developers
+    }
+}
+
+extension Team: Developer {
+    var language: String {
+        return self.developers.reduce("") { _language, developer -> String in
+            return _language+" "+developer.language
+        }
+    }
+
+    func traits() -> String {
+        return self.developers.reduce("") { _trait, developer -> String in
+            return _trait+"\n"+developer.traits()
+        }
+    }
+}
 
