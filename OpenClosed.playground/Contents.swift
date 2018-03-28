@@ -14,4 +14,19 @@ protocol Developer {
 struct WebProgrammer { }
 struct RubyArchitect { }
 class IOSEngineer { }
+//MARk: Extension for language
+extension IOSEngineer: Developer {
+    var language: String {  return "Objective-C" }
+}
+extension WebProgrammer: Developer {
+    var language: String { return "HTML" }
+}
+extension RubyArchitect: Developer {
+    var language: String { return "Ruby" }
+}
+extension Developer {
+    var iosTraits: String {
+        return "The iOS developer use both \(self.language) and now Swift"
+    }
+}
 
