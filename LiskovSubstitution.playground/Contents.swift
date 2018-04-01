@@ -26,3 +26,5 @@ class Airplane: Vehicle {
         return true
     }
 }
+
+class Car: Vehicle { }
