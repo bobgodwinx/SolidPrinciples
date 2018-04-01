@@ -20,3 +20,9 @@ class Vehicle {
         return false
     }
 }
+
+class Airplane: Vehicle {
+    override func canfly() -> Bool {
+        return true
+    }
+}
