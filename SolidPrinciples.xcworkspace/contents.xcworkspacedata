@@ -5,12 +5,15 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:LiskovSubstitution.playground">
-   </FileRef>
-   <FileRef
       location = "group:SingleResponsibility.playground">
    </FileRef>
    <FileRef
       location = "group:OpenClosed.playground">
+   </FileRef>
+   <FileRef
+      location = "group:LiskovSubstitution.playground">
+   </FileRef>
+   <FileRef
+      location = "group:InterfaceSegregation.playground">
    </FileRef>
 </Workspace>
