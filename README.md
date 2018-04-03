@@ -19,3 +19,9 @@ The Open Closed principle enforces a rule that a class can be easily extended bu
 
 Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-part-2-a22d4c8ed906) on medium. <br />
 The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/OpenClosed.playground/Contents.swift)
+
+### Liskov Substitution 
+
+So the Liskov substitution principle states that all derived class should be substitutable for it’s original base class. What this means in practice is that a subclass should always be interchangeable for it’s super class. The main purpose of this principle is to guarantee semantic interoperability within the types hierarchy
+Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-part-3-43aad943b056) on medium. <br />
+The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
