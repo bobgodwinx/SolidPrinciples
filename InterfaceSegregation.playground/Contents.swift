@@ -41,3 +41,19 @@ protocol Community {
     var member: Union {get}
 }
 
+extension Union {
+    var description: String {
+        switch self {
+        case .AU:
+            return "African Union"
+        case .CAU:
+            return "Central Asian Economic Union"
+        case .EU:
+            return "European Union"
+        case .NAU:
+            return "North American Union"
+        case .UNASUR:
+            return "Union of South American Nations"
+        }
+    }
+}
