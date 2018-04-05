@@ -14,7 +14,7 @@ enum Union {
 }
 
 enum Language {
-    case mandarin, english, deutsche, italian, latin, spanish, french
+    case mandarin, english, deutsche, italian, latin, spanish, french, Welsh, Scots, Irish, Cornish
 }
 
 enum State {
@@ -39,6 +39,11 @@ protocol Country {
 
 protocol Community {
     var member: Union {get}
+}
+
+protocol Lingua {
+    var official: Language {get}
+    var others: [Language] {get}
 }
 
 extension Union {
