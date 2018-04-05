@@ -17,6 +17,10 @@ enum Language {
     case mandarin, english, deutsche, italian, latin, spanish, french, Welsh, Scots, Irish, Cornish
 }
 
+enum Ethnicity {
+    case caucasian, black, asian
+}
+
 enum State {
     case italy(continent: Continent)
     case gemany(continent: Continent)
@@ -30,17 +34,17 @@ enum State {
     case wales(continent: Continent)
     case northernIreland(continent: Continent)
 }
-
+/// Interface 1 = Country
 protocol Country {
     var name: String {get}
     var states: [State] {get}
     var poplation: Double {get}
 }
-
+/// Interface 2 = Community
 protocol Community {
     var member: Union {get}
 }
-
+/// Interface 3 = Lingua
 protocol Lingua {
     var official: Language {get}
     var others: [Language] {get}
