@@ -30,3 +30,14 @@ enum State {
     case wales(continent: Continent)
     case northernIreland(continent: Continent)
 }
+
+protocol Country {
+    var name: String {get}
+    var states: [State] {get}
+    var poplation: Double {get}
+}
+
+protocol Community {
+    var member: Union {get}
+}
+
