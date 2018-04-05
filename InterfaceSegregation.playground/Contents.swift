@@ -14,7 +14,7 @@ enum Union {
 }
 
 enum Language {
-    case mandarin, english, deutsche, italian, latin, spanish, french, Welsh, Scots, Irish, Cornish
+    case mandarin, english, deutsche, italian, latin, spanish, french, portuguese, welsh, scots, irish, cornish
 }
 
 enum Ethnicity {
@@ -23,7 +23,7 @@ enum Ethnicity {
 
 enum State {
     case italy(continent: Continent)
-    case gemany(continent: Continent)
+    case germany(continent: Continent)
     case southAfrica(continent: Continent)
     case nigeria(continent: Continent)
     case china(continent: Continent)
@@ -66,3 +66,38 @@ extension Union {
         }
     }
 }
+
+extension State: Lingua {
+    var official: Language {
+        switch self {
+        case .brazil:
+            return .portuguese
+        case .china:
+            return .mandarin
+        case .germany:
+            return .deutsche
+        case .italy:
+            return .italian
+        case .nigeria, .scotland, .wales, .england, .northernIreland, .USA, .southAfrica:
+            return .english
+        }
+    }
+
+    var others: [Language] {
+        switch self {
+        case .northernIreland:
+            return [.irish]
+        case .wales:
+            return [.welsh]
+        case .scotland:
+            return [.scots]
+        case .italy:
+            return [.latin]
+        case .england:
+            return [.cornish]
+        default:
+            return []
+        }
+    }
+}
+
