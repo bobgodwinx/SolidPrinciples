@@ -57,7 +57,7 @@ protocol Lingua {
 protocol Ethnicity {
     var ethnicGroups: [Ethnic] {get}
 }
-
+/// description on `Union`
 extension Union {
     var description: String {
         switch self {
@@ -74,7 +74,7 @@ extension Union {
         }
     }
 }
-
+/// `State` conforms to `Lingua`
 extension State: Lingua {
     var officialLanguage: Language {
         switch self {
@@ -105,6 +105,77 @@ extension State: Lingua {
             return [.cornish]
         default:
             return []
+        }
+    }
+}
+///`Country` conforming to `Ethnicity`
+extension Ethnicity where Self: Country {
+    //Please note that this is just an exmaple
+    //do not hold me responsible for incorrect data
+    //use it and see it as example please!!!!!!!!
+    var ethnicGroups: [Ethnic] {
+        return self.states.reduce([]) { groups, state -> [Ethnic] in
+            var _ethnicGroups = groups
+            switch state {
+            case .scotland, .wales, .england, .northernIreland:
+                let caucasian = Ethnic.caucasian(percentage: 81.9)
+                let black = Ethnic.black(percentage: 13)
+                let asian = Ethnic.asian(percentage: 8.0)
+                let others = Ethnic.others(percentage: 3.0)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .italy:
+                let caucasian = Ethnic.caucasian(percentage: 92.9)
+                let black = Ethnic.black(percentage: 0.8)
+                let asian = Ethnic.asian(percentage: 2.2)
+                let others = Ethnic.others(percentage: 7.0)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .china:
+                let caucasian = Ethnic.caucasian(percentage: 4.9)
+                let black = Ethnic.black(percentage: 0.1)
+                let asian = Ethnic.asian(percentage: 90.2)
+                let others = Ethnic.others(percentage: 5.0)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .germany:
+                let caucasian = Ethnic.caucasian(percentage: 91.5)
+                let black = Ethnic.black(percentage: 1.1)
+                let asian = Ethnic.asian(percentage: 1.2)
+                let others = Ethnic.others(percentage: 6.2)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .brazil:
+                let caucasian = Ethnic.caucasian(percentage: 47.7)
+                let black = Ethnic.black(percentage: 7.6)
+                let asian = Ethnic.asian(percentage: 1.2)
+                let mixed = Ethnic.mixed(percentage: 43.1)
+                let others = Ethnic.others(percentage: 0.4)
+                let _groups = [caucasian, black, asian, others, mixed]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .nigeria:
+                let caucasian = Ethnic.caucasian(percentage: 0.6)
+                let black = Ethnic.black(percentage: 95.6)
+                let asian = Ethnic.asian(percentage: 0.4)
+                let others = Ethnic.others(percentage: 3.4)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .USA:
+                let caucasian = Ethnic.caucasian(percentage: 61.3)
+                let black = Ethnic.black(percentage: 12.6)
+                let asian = Ethnic.asian(percentage: 5.6)
+                let others = Ethnic.others(percentage: 20.5)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            case .southAfrica:
+                let caucasian = Ethnic.caucasian(percentage: 8.9)
+                let black = Ethnic.black(percentage: 79.2)
+                let asian = Ethnic.asian(percentage: 2.5)
+                let others = Ethnic.others(percentage: 7.5)
+                let _groups = [caucasian, black, asian, others]
+                _ethnicGroups.append(contentsOf: _groups)
+            }
+            return _ethnicGroups
         }
     }
 }
