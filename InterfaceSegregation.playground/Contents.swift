@@ -17,8 +17,12 @@ enum Language {
     case mandarin, english, deutsche, italian, latin, spanish, french, portuguese, welsh, scots, irish, cornish
 }
 
-enum Ethnicity {
-    case caucasian, black, asian
+enum Ethnic {
+    case caucasian(percentage: Float)
+    case black(percentage: Float)
+    case asian(percentage: Float)
+    case mixed(percentage: Float)
+    case others(percentage: Float)
 }
 
 enum State {
@@ -46,8 +50,12 @@ protocol Community {
 }
 /// Interface 3 = Lingua
 protocol Lingua {
-    var official: Language {get}
-    var others: [Language] {get}
+    var officialLanguage: Language {get}
+    var otherLanguages: [Language] {get}
+}
+/// Inetrface 4 = Ethnicity
+protocol Ethnicity {
+    var ethnicGroups: [Ethnic] {get}
 }
 
 extension Union {
@@ -68,7 +76,7 @@ extension Union {
 }
 
 extension State: Lingua {
-    var official: Language {
+    var officialLanguage: Language {
         switch self {
         case .brazil:
             return .portuguese
@@ -83,7 +91,7 @@ extension State: Lingua {
         }
     }
 
-    var others: [Language] {
+    var otherLanguages: [Language] {
         switch self {
         case .northernIreland:
             return [.irish]
@@ -100,4 +108,3 @@ extension State: Lingua {
         }
     }
 }
-
