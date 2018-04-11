@@ -183,7 +183,8 @@ extension Ethnicity where Self: Country {
 protocol SovereignType: Country, Lingua, Ethnicity, Community {
     init(name: String, states: [State], population: Double, officialLanguage: Language, member: Union)
 }
-
+/// A `Nation` confroms to a `SovereignType`
+/// you can say that nations are sovereign.. more or less
 struct Nation: SovereignType {
     let name: String
     let states: [State]
@@ -197,3 +198,16 @@ struct Nation: SovereignType {
         }
     }
 }
+
+///Example 1 china
+let china = State.china(continent: .asia)
+let PRC = Nation(name: "People's Republic of China",
+                 states: [china],
+                 population: 1379000000,
+                 officialLanguage: .mandarin,
+                 member: .CAU)
+PRC.name
+PRC.officialLanguage
+PRC.otherLanguages
+PRC.ethnicGroups
+PRC.member.description
