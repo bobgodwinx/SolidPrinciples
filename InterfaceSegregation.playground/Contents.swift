@@ -5,7 +5,7 @@ import PlaygroundSupport
 
 //MARK: Interface Segregation
 
-enum Continent: String {
+enum Continent {
     case africa, europe, asia, america
 }
 
