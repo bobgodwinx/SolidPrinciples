@@ -211,3 +211,22 @@ PRC.officialLanguage
 PRC.otherLanguages
 PRC.ethnicGroups
 PRC.member.description
+
+///Example 2 UK
+let england = State.england(continent: .europe)
+let scotland = State.scotland(continent: .europe)
+let wales = State.wales(continent: .europe)
+let northIreland = State.northernIreland(continent: .europe)
+
+let UK = Nation(name: "United Kingdom",
+                states: [england, scotland, wales, northIreland],
+                population: 65000000,
+                officialLanguage: .english,
+                member: .EU)
+
+UK.name
+UK.officialLanguage
+UK.otherLanguages
+UK.ethnicGroups
+UK.member.description
+UK.population
