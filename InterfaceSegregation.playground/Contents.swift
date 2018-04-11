@@ -184,4 +184,16 @@ protocol SovereignType: Country, Lingua, Ethnicity, Community {
     init(name: String, states: [State], population: Double, officialLanguage: Language, member: Union)
 }
 
+struct Nation: SovereignType {
+    let name: String
+    let states: [State]
+    let population: Double
+    let officialLanguage: Language
+    let member: Union
 
+    var otherLanguages: [Language] {
+        return states.reduce([]) { languages, state -> [Language] in
+            return languages + state.otherLanguages
+        }
+    }
+}
