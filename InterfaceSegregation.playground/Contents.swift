@@ -42,7 +42,7 @@ enum State {
 protocol Country {
     var name: String {get}
     var states: [State] {get}
-    var poplation: Double {get}
+    var population: Double {get}
 }
 /// Interface 2 = Community
 protocol Community {
@@ -179,3 +179,9 @@ extension Ethnicity where Self: Country {
         }
     }
 }
+/// Interface 5 = SovereignType
+protocol SovereignType: Country, Lingua, Ethnicity, Community {
+    init(name: String, states: [State], population: Double, officialLanguage: Language, member: Union)
+}
+
+
