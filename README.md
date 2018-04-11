@@ -25,3 +25,9 @@ The example code is also available on [Playground](https://github.com/bobgodwinx
 So the Liskov substitution principle states that all derived class should be substitutable for it’s original base class. What this means in practice is that a subclass should always be interchangeable for it’s super class. The main purpose of this principle is to guarantee semantic interoperability within the types hierarchy
 Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-part-3-43aad943b056) on medium. <br />
 The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
+
+### Interface Segregation 
+
+The Interface Segregation Principle takes the separation of concerns to a higher level. It states that a client should not be forced to implement or depend on methods that it does not use. In other words it is better to have many specific interfaces than to have a monolitic general purpose interface. The entire purpose of Interface Segregation is to reduce fat interface or what is known as interface pullution, but rather favour code readability and separation of concerns.
+Please see complete [article](https://medium.com/@bobgodwinx/solid-principles-part-4-xxxxxxxxxx) on medium. <br />
+The example code is also available on [Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
