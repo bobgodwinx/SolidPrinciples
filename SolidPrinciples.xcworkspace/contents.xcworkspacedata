@@ -5,6 +5,9 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:DependencyInversion.playground">
+   </FileRef>
+   <FileRef
       location = "group:SingleResponsibility.playground">
    </FileRef>
    <FileRef
