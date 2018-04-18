@@ -30,3 +30,17 @@ protocol DefaultsServiceType {
     /// - Parameter key: Defaults key to erase.
     func erase(_ key: DefaultsKey)
 }
+
+extension UserDefaults {
+    private var defaults: UserDefaults {
+        return UserDefaults.standard
+    }
+    // MARK: Codable
+    private var encoder: PropertyListEncoder {
+        return PropertyListEncoder()
+    }
+    // MARK: Decodable
+    private var decoder: PropertyListDecoder {
+        return PropertyListDecoder()
+    }
+}
