@@ -5,7 +5,11 @@ import PlaygroundSupport
 
 //MARK: Dependency Inversion"
 
-typealias DefaultsKey = String
+enum DefaultsKey: String {
+    case cookie = "Cookie"
+    case session = "Session"
+    case status = "Status"
+}
 /// A type providing DAO services for `UserDefaults` persistence.
 protocol DefaultsServiceType {
     /// Read & decode a value for a given key from standard `UserDefaults`.
