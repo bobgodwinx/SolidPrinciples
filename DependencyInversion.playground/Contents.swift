@@ -31,7 +31,7 @@ protocol DefaultsServiceType {
     func erase(_ key: DefaultsKey)
 }
 
-extension UserDefaults {
+extension UserDefaults: DefaultsServiceType {
     private var defaults: UserDefaults {
         return UserDefaults.standard
     }
@@ -42,5 +42,22 @@ extension UserDefaults {
     // MARK: Decodable
     private var decoder: PropertyListDecoder {
         return PropertyListDecoder()
+    }
+
+    // MARK: Conforming to DefaultsServiceType
+
+    func read<T: Decodable>(forKey key: DefaultsKey) -> T? {
+        guard let data = defaults.data(forKey: key.rawValue) else { return nil }
+        let value = try? decoder.decode([String: T].self, from: data)
+        return value?[key.rawValue]
+    }
+
+    func write<T: Encodable>(_ value: T, forKey key: DefaultsKey) {
+        let data = try? encoder.encode([key.rawValue: value])
+        defaults.set(data, forKey: key.rawValue)
+    }
+
+    func erase(_ key: DefaultsKey) {
+        defaults.removeObject(forKey: key.rawValue)
     }
 }
