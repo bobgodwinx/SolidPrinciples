@@ -6,9 +6,7 @@ import PlaygroundSupport
 //MARK: Dependency Inversion"
 
 enum DefaultsKey: String {
-    case cookie = "Cookie"
-    case session = "Session"
-    case status = "Status"
+    case game = "Game"
 }
 /// A type providing DAO services for `UserDefaults` persistence.
 protocol DefaultsServiceType {
@@ -59,5 +57,20 @@ extension UserDefaults: DefaultsServiceType {
 
     func erase(_ key: DefaultsKey) {
         defaults.removeObject(forKey: key.rawValue)
+    }
+}
+
+struct Game {
+    struct Player {
+        let name: String
+        let level: Int
+        let points: Int
+        let description: String?
+    }
+
+    var players: [Player]
+
+    init(players: [Player] = []) {
+        self.players = players
     }
 }
