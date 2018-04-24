@@ -61,7 +61,7 @@ extension UserDefaults: DefaultsServiceType {
 }
 
 struct Game {
-    struct Player {
+    struct Player: Codable {
         let name: String
         let level: Int
         let points: Int
@@ -74,3 +74,27 @@ struct Game {
         self.players = players
     }
 }
+
+extension Game: Codable {
+    enum PlayerKeys:String, CodingKey {
+        case name
+        case level
+        case points
+        case description
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case players
+    }
+
+    /// Encodes this value into the given encoder.
+    func encode(to encoder: Encoder) throws {
+        ///Implement
+    }
+
+    /// Creates a new instance by decoding from the given decoder
+    init(from decoder: Decoder) throws {
+        ///Implement
+    }
+}
+
