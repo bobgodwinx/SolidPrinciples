@@ -106,7 +106,6 @@ extension Game: Codable {
         for key in container.allKeys {
             let playerContainer = try container.nestedContainer(keyedBy: PlayerKeys.self, forKey: key)
             let name = try playerContainer.decode(String.self, forKey: .name)
-            print(name)
             let level = try playerContainer.decode(Int.self, forKey: .level)
             let points = try playerContainer.decode(Int.self, forKey: .points)
             let desc = try playerContainer.decodeIfPresent(String.self, forKey: .description)
@@ -133,4 +132,21 @@ class PersistenceStore {
         guard let game: Game = self.store.read(forKey: .game) else { return nil }
         return game
     }
+}
+
+/// Create an instance of PersistenceStore
+/// And inject DefaultsServiceType
+let persistenceStore = PersistenceStore(store: UserDefaults.standard)
+/// Create an instance of players
+let player = Game.Player(name: "Smart Kid",
+                         level: 100,
+                         points: 99,
+                         description: "Smartest in the class")
+/// Persist Game
+persistenceStore.save(currentGame: Game(players: [player]))
+/// retrieve persisted Game
+let game = persistenceStore.currentGame()!
+
+for player in game.players {
+    print(player.name)
 }
