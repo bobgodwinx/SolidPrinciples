@@ -101,6 +101,18 @@ extension Game: Codable {
 
     /// Creates a new instance by decoding from the given decoder
     init(from decoder: Decoder) throws {
-        ///Implement
+        var players = [Player]()
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        for key in container.allKeys {
+            let playerContainer = try container.nestedContainer(keyedBy: PlayerKeys.self, forKey: key)
+            let name = try playerContainer.decode(String.self, forKey: .name)
+            print(name)
+            let level = try playerContainer.decode(Int.self, forKey: .level)
+            let points = try playerContainer.decode(Int.self, forKey: .points)
+            let desc = try playerContainer.decodeIfPresent(String.self, forKey: .description)
+            let player = Player(name: name, level: level, points: points, description: desc)
+            players.append(player)
+        }
+        self.init(players: players)
     }
 }
