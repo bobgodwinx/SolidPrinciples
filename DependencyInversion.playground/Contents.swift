@@ -119,6 +119,11 @@ extension Game: Codable {
 
 
 class PersistenceStore {
+    private let store: UserDefaults //Anti-pattern
+
+    init(store: UserDefaults /*Anit-pattern*/) {
+        self.store = store
+    }
 
     func save(currentGame game: Game) {
         ///Implement
@@ -126,5 +131,6 @@ class PersistenceStore {
 
     func currentGame() -> Game? {
         ///Implement
+        return nil
     }
 }
