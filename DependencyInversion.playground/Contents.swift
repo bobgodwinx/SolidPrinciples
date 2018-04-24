@@ -126,11 +126,12 @@ class PersistenceStore {
     }
 
     func save(currentGame game: Game) {
-        ///Implement
+        self.store.write(game, forKey: .game)
     }
 
     func currentGame() -> Game? {
-        ///Implement
-        return nil
+        guard let game: Game = self.store.read(forKey: .game) else { return nil }
+        return game
     }
 }
+
