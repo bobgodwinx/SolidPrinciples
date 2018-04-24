@@ -119,9 +119,9 @@ extension Game: Codable {
 
 
 class PersistenceStore {
-    private let store: UserDefaults //Anti-pattern
+    private let store: DefaultsServiceType //Dependency Inversion Principle
 
-    init(store: UserDefaults /*Anit-pattern*/) {
+    init(store: DefaultsServiceType/*Dependency Inversion Principle*/) {
         self.store = store
     }
 
@@ -134,4 +134,3 @@ class PersistenceStore {
         return game
     }
 }
-
