@@ -116,3 +116,15 @@ extension Game: Codable {
         self.init(players: players)
     }
 }
+
+
+class PersistenceStore {
+
+    func save(currentGame game: Game) {
+        ///Implement
+    }
+
+    func currentGame() -> Game? {
+        ///Implement
+    }
+}
