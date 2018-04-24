@@ -89,7 +89,14 @@ extension Game: Codable {
 
     /// Encodes this value into the given encoder.
     func encode(to encoder: Encoder) throws {
-        ///Implement
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        for player in players {
+            var playerContainer = container.nestedContainer(keyedBy: PlayerKeys.self, forKey: CodingKeys.players)
+            try playerContainer.encode(player.name, forKey: .name)
+            try playerContainer.encode(player.level, forKey: .level)
+            try playerContainer.encode(player.points, forKey: .points)
+            try playerContainer.encode(player.description, forKey: .description)
+        }
     }
 
     /// Creates a new instance by decoding from the given decoder
@@ -97,4 +104,3 @@ extension Game: Codable {
         ///Implement
     }
 }
-
