@@ -46,12 +46,11 @@ extension UserDefaults: DefaultsServiceType {
 
     func read<T: Decodable>(forKey key: DefaultsKey) -> T? {
         guard let data = defaults.data(forKey: key.rawValue) else { return nil }
-        let value = try? decoder.decode([String: T].self, from: data)
-        return value?[key.rawValue]
+        return try? decoder.decode(T.self, from: data)
     }
 
     func write<T: Encodable>(_ value: T, forKey key: DefaultsKey) {
-        let data = try? encoder.encode([key.rawValue: value])
+        let data = try? encoder.encode(value)
         defaults.set(data, forKey: key.rawValue)
     }
 
