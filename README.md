@@ -36,11 +36,33 @@ The Interface Segregation Principle takes the separation of concerns to a higher
 
 ### Dependency Inversion 
 
-Dependency Inversion Principle states that, higher level modules shouldn’t depend on the lower level modules, they should both depend on abstractions. In other words all entities should be based on Abstract Interfaces and not on Concrete Types. The principle also stressed that abstractions should not depend on details. Details should depend upon abstractions.
+Dependency Inversion Principle states that, higher level modules shouldn’t depend on the lower level modules, they should both depend on abstractions. In other words all entities should be based on Abstract Interfaces and not on Concrete Types. The principle also stressed that abstractions should not depend on details. Details should depend upon abstractions. 
+
 So the technical question here is what is a higher level module? or what can we define as a lower level module?
+
 A High level module is any module that contains the policy decisions and business model of an application. This can be regarded as the app identity. The higher level modules are primarily consumed by the presentation layer within an app. 
+
 Low level modules are modules that contains detailed implementation that are required to execute the decisions and business policies.
+
 Dependency Inversion Principle is sometimes mistaken for Dependency Injection. While the terms seems similar to each other, they are totally different. Dependency Injection is the process of giving an object it’s instance properties or variables. However it is difficult to talk about Dependency Inversion Principle without mentioning Dependency Injection. This is because you need Dependency Injection mechanism to realize a  Dependency Inversion
+```swift
+class PersistenceStore {
+    private let store: DefaultsServiceType //Dependency Inversion Principle
+
+    init(store: DefaultsServiceType/*Dependency Inversion Principle*/) {
+        self.store = store
+    }
+
+    func save(currentGame game: Game) {
+        self.store.write(game, forKey: .game)
+        }
+
+    func currentGame() -> Game? {
+        guard let game: Game = self.store.read(forKey: .game) else { return nil }
+        return game
+    }
+}
+```
 
 - [Please see complete  Dependency Inversion  article on medium](https://medium.com/@bobgodwinx/solid-principles-part-5-xxxxxxxxxx). <br />
 - [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/DependencyInversion.playground/Contents.swift)
