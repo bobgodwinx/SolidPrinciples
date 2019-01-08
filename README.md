@@ -3,10 +3,13 @@
 This is a Focus on SOLID Principles but from `Swift` point of view. Contributions are welcomed. 
 
 ## Contents:
-- [Single Responisibility](#Single-Responsibility)
-- [Open Closed](#Open-Closed)
+- [Single Responisibility](###Single-Responsibility)
+- [Open/Closed](###Open-Closed)
+- [Liskov Substitution](###Liskov-Substitution)
+- [Interface Segregation](###Interface-Segregation)
+- [Dependency Inversion](###Dependency-Inversion)
 
-### Single-Responsibility
+### Single Responsibility
 
 So the Gang of Four laid the first foundation of OOP design patterns more than 2 decades ago, it’s outdated in my opinion. But it could still be useful when adhering to clean code. This very first principle states that a class should do only one job! Yes this is the meaning of single responsibility and there is no need to sugar coat it. “A class = performs one operation” simple and stupid. 
 
@@ -29,7 +32,7 @@ class TurnOn: Executable {
 - [See complete Single-Responsibility article on medium](https://medium.com/@bobgodwinx/solid-principles-part-1-f3d11b3159f0). <br />
 - [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/SingleResponsibility.playground/Contents.swift)
 
-### Open-Closed
+### Open/Closed
 
 The Open Closed principle enforces a rule that a class can be easily extended but at the same time forbids any modification to it’s self. This principle highly draws it’s traits from the Decorator & Strategy pattern. The Decorator allows extension of behaviour dynamically or statically during runtime. It is often referred to as “the alternative to subclassing”, while the Strategy allows implementation of different algorithms interchangeable within the same family.
 
