@@ -30,7 +30,7 @@ class TurnOn: Executable {
 }
 ```
 - [Please see complete Single-Responsibility article on medium](https://medium.com/@bobgodwinx/solid-principles-part-1-f3d11b3159f0). <br />
-- [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/SingleResponsibility.playground/Contents.swift)
+- [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/SingleResponsibility.playground/Contents.swift)
 
 ### Open/Closed
 
@@ -78,7 +78,7 @@ let planeSpeedDescription = Handler.speedDescription(for: plane)
 ```
 
 - [Please see complete Liskov Substitution article on medium](https://medium.com/@bobgodwinx/solid-principles-part-3-43aad943b056). <br />
-- [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
+- [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
 
 ### Interface Segregation 
 
@@ -107,7 +107,7 @@ struct Nation: SovereignType {
 ```
 
 - [Please see complete  Interface Segregation  article on medium](https://medium.com/@bobgodwinx/solid-principles-part-4-xxxxxxxxxx). <br />
-- [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
+- [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
 
 ### Dependency Inversion 
 
@@ -140,6 +140,6 @@ class PersistenceStore {
 ```
 
 - [Please see complete  Dependency Inversion  article on medium with full detail implementation and snippets](https://medium.com/@bobgodwinx/solid-principles-part-5-xxxxxxxxxx). <br />
-- [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/DependencyInversion.playground/Contents.swift)
+- [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/DependencyInversion.playground/Contents.swift)
 
 
