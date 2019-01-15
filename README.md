@@ -84,6 +84,28 @@ let planeSpeedDescription = Handler.speedDescription(for: plane)
 
 The Interface Segregation Principle takes the separation of concerns to a higher level. It states that a client should not be forced to implement or depend on methods that it does not use. In other words it is better to have many specific interfaces than to have a monolitic general purpose interface. The entire purpose of Interface Segregation is to reduce fat interface or what is known as interface pullution, but rather favour code readability and separation of concerns.
 
+```swift
+/// Interface 5 = SovereignType
+protocol SovereignType: Country, Lingua, Ethnicity, Community {
+    init(name: String, states: [State], population: Double, officialLanguage: Language, member: Union)
+}
+/// A `Nation` confroms to a `SovereignType`
+/// you can say that nations are sovereign.. more or less
+struct Nation: SovereignType {
+    let name: String
+    let states: [State]
+    let population: Double
+    let officialLanguage: Language
+    let member: Union
+
+    var otherLanguages: [Language] {
+        return states.reduce([]) { languages, state -> [Language] in
+            return languages + state.otherLanguages
+        }
+    }
+}
+```
+
 - [Please see complete  Interface Segregation  article on medium](https://medium.com/@bobgodwinx/solid-principles-part-4-xxxxxxxxxx). <br />
 - [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
 
