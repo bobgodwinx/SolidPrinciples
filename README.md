@@ -29,7 +29,7 @@ class TurnOn: Executable {
     }
 }
 ```
-- [See complete Single-Responsibility article on medium](https://medium.com/@bobgodwinx/solid-principles-part-1-f3d11b3159f0). <br />
+- [Please see complete Single-Responsibility article on medium](https://medium.com/@bobgodwinx/solid-principles-part-1-f3d11b3159f0). <br />
 - [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/SingleResponsibility.playground/Contents.swift)
 
 ### Open/Closed
@@ -54,7 +54,28 @@ extension Developer where Self == WebProgrammer {
 
 ### Liskov Substitution 
 
-So the Liskov substitution principle states that all derived class should be substitutable for it’s original base class. What this means in practice is that a subclass should always be interchangeable for it’s super class. The main purpose of this principle is to guarantee semantic interoperability within the types hierarchy
+So the Liskov substitution principle states that all derived class should be substitutable for it’s original base class. What this means in practice is that a subclass should always be interchangeable for it’s super class. The main purpose of this principle is to guarantee semantic interoperability within the types hierarchy.
+
+```swift
+class Car: Vehicle { }
+
+class Handler {
+    static func speedDescription(for vehicle: Vehicle) -> String {
+        if vehicle.canfly() {
+            return "It flys at \(vehicle.speed) knot "
+        } else {
+            return "Runs at \(vehicle.speed) kph"
+        }
+    }
+}
+
+let car = Car(name: "BMW", speed: 180.00, wheels: 4)
+let plane = Airplane(name: "KLM", speed: 34.00, wheels: 3)
+///Based on Liskov Handler should always be able to
+///Process speedDescription when given any type of Vehicle
+let carSpeedDescription = Handler.speedDescription(for: car)
+let planeSpeedDescription = Handler.speedDescription(for: plane)
+```
 
 - [Please see complete Liskov Substitution article on medium](https://medium.com/@bobgodwinx/solid-principles-part-3-43aad943b056). <br />
 - [The example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
