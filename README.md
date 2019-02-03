@@ -106,7 +106,7 @@ struct Nation: SovereignType {
 }
 ```
 
-- [Please see complete  Interface Segregation  article on medium](https://medium.com/@bobgodwinx/solid-principles-part-4-xxxxxxxxxx). <br />
+- [Please see complete  Interface Segregation  article on medium](https://medium.com/@bobgodwinx/solid-principles-part-4-13de4d4d7571). <br />
 - [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/LiskovSubstitution.playground/Contents.swift)
 
 ### Dependency Inversion 
@@ -139,7 +139,7 @@ class PersistenceStore {
 }
 ```
 
-- [Please see complete  Dependency Inversion  article on medium with full detail implementation and snippets](https://medium.com/@bobgodwinx/solid-principles-part-5-xxxxxxxxxx). <br />
+- [Please see complete  Dependency Inversion  article on medium with full detail implementation and snippets](https://medium.com/@bobgodwinx/solid-principles-part-5-b1d2047c2d55). <br />
 - [Full example code is also available on Playground](https://github.com/bobgodwinx/SolidPrinciples/blob/master/DependencyInversion.playground/Contents.swift)
 
 
