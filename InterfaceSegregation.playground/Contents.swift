@@ -180,24 +180,30 @@ extension Ethnicity where Self: Country {
     }
 }
 /// Interface 5 = SovereignType
-protocol SovereignType: Country, Lingua, Ethnicity, Community {
+/// You can say a `Country` consists of `Ethnic`
+/// groups which lives in the same `Communities`
+protocol SovereignType: Country, Ethnicity, Community {
     init(name: String, states: [State], population: Double, officialLanguage: Language, member: Union)
 }
-/// A `Nation` confroms to a `SovereignType`
-/// you can say that nations are sovereign.. more or less
-struct Nation: SovereignType {
-    let name: String
-    let states: [State]
-    let population: Double
-    let officialLanguage: Language
-    let member: Union
-
+/// `otherLanguages` is free to all conforming Concrete Types
+extension SovereignType where Self: Lingua {
     var otherLanguages: [Language] {
         return states.reduce([]) { languages, state -> [Language] in
             return languages + state.otherLanguages
         }
     }
 }
+/// A `Nation` Concrete Type
+struct Nation {
+    let name: String
+    let states: [State]
+    let population: Double
+    let officialLanguage: Language
+    let member: Union
+}
+/// A `Nation` confroms to a `SovereignType` + `Lingua`
+/// you can say that nations are sovereign.. more or less
+extension Nation: SovereignType, Lingua { }
 
 ///Example 1 china
 let china = State.china(continent: .asia)
